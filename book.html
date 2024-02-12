@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .navbar {
+            background-color: black;
+            color: white;
+            height: 10%
+        }
+
+        .blockcontainer {
+
+            width: 350px;
+            height: 250px;
+            background-Color: black;
+            color: white;
+            overflow-x: auto;
+            text-align: center;
+            border-radius: 30%;
+
+            display:inline-block
+        }
+
+        .blockcontainer h2 {
+            color: pink;
+
+
+        }
+
+        .blockcontainer h5 {
+            color: aqua
+        }
+
+        .blockcontainer button {
+            border: none;
+        }
+
+        #btn {
+            background-Color: pink;
+            width: 50px;
+            height: 50px;
+            margin-left: 550px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 30%;
+            position: fixed;
+
+
+        }
+
+        .pop-overlay {
+            position: absolute;
+            background-Color: black;
+            opacity: 0.6;
+            width: 100%;
+
+            height: 100%;
+            top: 0px;
+            bottom: 0px;
+            z-index: 1;
+            display: none;
+
+
+
+        }
+
+
+        .pop-up {
+            margin-top: 20px;
+            background-Color: pink;
+            width: 40%;
+            height: 30%;
+            padding: 40px;
+            position: absolute;
+            top: 50px;
+            left: 400px;
+            z-index: 2;
+
+            color: red;
+
+            border-radius: 20px;
+            display:none;
+        }
+
+        .pop-up input {
+            background: pink;
+            border: none;
+            width: 100%;
+
+            margin: 1px;
+            padding: 5px;
+            font-size: 10px;
+            border-bottom: 2px solid black;
+            color: black;
+
+        }
+
+        .pop-up input::placeholder {
+            color: black;
+        }
+
+        .pop-up textarea::placeholder {
+            color: black;
+        }
+
+        .pop-up textarea {
+            background: pink;
+
+            width: 100%;
+            color: black;
+            margin: 1px;
+            padding: 5px;
+            font-size: 10px;
+            border: 2px solid black;
+
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+
+    <div class="navbar">
+        <h1>BOOKSKY</h1>
+    </div>
+    <div class="container">
+        <div class="blockcontainer">
+            <h2>Master</h2>
+            <h5>Vijay</h5>
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur distinctio saepe quas, earum
+                consequatur sed, blanditiis obcaecati suscipit nam quisquam deserunt placeat adipisci id sit voluptatum
+                quaerat ullam reiciendis minus!</p>
+            <button  onclick="fun(event)"style="background-Color:yellow;">Delete</button>
+
+
+        </div>
+
+       
+
+
+        </div>
+    </div>
+
+    <div class="pop-overlay"></div>
+    <div class="pop-up">
+        <h2>Add book</h2>
+        <form>
+            <input type="text" placeholder="booktitle" id="title">
+            <input type="text" placeholder="bookauthor" id="author">
+            <textarea placeholder="short description" id="para"></textarea>
+            <button id="book">Add</button></br>
+            <button id="cancelbook">Cancel</button>
+
+
+        </form>
+    </div>
+
+
+
+
+
+
+    <button id="btn"> click</button>
+
+
+</body>
+<script>
+    var over = document.querySelector(".pop-overlay")
+    var up = document.querySelector(".pop-up")
+    var btn = document.getElementById("btn")
+
+
+    btn.addEventListener("click", function () {
+    
+        over.style.display = "block";
+        //  over.style.display='inline-block'
+        up.style.display = "block"
+
+        alert("hello");
+        // document.body.textContent = "vip"
+
+    })
+
+var butt=document.getElementById("cancelbook")
+
+butt.addEventListener("click",function(event){
+    event.preventDefault();
+    over.style.display="none"
+    up.style.display="none"
+})
+
+
+var container=document.querySelector(".container");
+var title=document.getElementById("title");
+var author=document.getElementById("author");
+
+var para=document.getElementById("para");
+
+var book=document.getElementById("book");
+book.addEventListener("click",function(event){
+event.preventDefault();
+var div=document.createElement("div");
+div.setAttribute('class',"blockcontainer")
+div.innerHTML=`<h1>${title.value}</h1>
+<h5>${author.value}</h5>
+
+            <p>${para.value}</p>
+            <button  onclick="fun(event)"style="background-Color:yellow;">Delete</button>`
+
+
+container.append(div)
+over.style.display="none"
+up.style.display="none"
+
+})
+
+function fun(event)
+{
+    event.target.parentElement.remove()
+}
+</script>
+
+</html>

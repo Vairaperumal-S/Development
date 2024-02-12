@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<input id="val" >
+<button onclick="fun()">Add</button>
+<ul id="list">
+    <li>hello
+    <button id="del" onclick="fun1(event)">delete</button>
+    </li>
+</ul>
+<button id="btn" >show</button>
+<script>
+// function fun()
+// {
+//     var inp=document.getElementById("val")
+//     var ul=document.getElementById("list")
+//     var list1=document.createElement("li")
+//     list1.innerHTML=val.value+"<button onclick='fun1(event)'>delete</button>";
+//     ul.append(list1)
+
+
+// }
+// function fun1(event){
+
+
+//     event.target.parentElement.remove()
+// }
+var button=document.getElementById("btn")
+button.addEventListener("click",function()
+{
+    alert("hello")
+})
+
+button.addEventListener("mouseover",function()
+{
+    alert(`mouseover`)
+})
+
+
+
+</script>
+
